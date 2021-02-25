@@ -1,12 +1,4 @@
 {
-    {
-  "name": "covid19-tracking",
-  "description": "Covid19 tracking using covid19api",
-  "version": "1.0.0",
-  "engines": {
-    "node": "12.x",
-    "npm": "7.x"
-  }
 
     "devDependencies": {
         "@symfony/stimulus-bridge": "^2.0.0",
@@ -24,10 +16,6 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress",
-        "heroku-postbuild": "node_modules/.bin/encore production"
+        "heroku-postbuild" : "node_modules/.bin/encore production"
     },
-    "dependencies": {
-        "@heroku-cli/plugin-buildpacks": "^7.47.13",
-        "@heroku/buildpack-registry": "^1.0.1"
-    }
 }
