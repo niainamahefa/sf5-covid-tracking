@@ -1,0 +1,33 @@
+{
+    {
+  "name": "covid19-tracking",
+  "description": "Covid19 tracking using covid19api",
+  "version": "1.0.0",
+  "engines": {
+    "node": "12.x",
+    "npm": "7.x"
+  }
+
+    "devDependencies": {
+        "@symfony/stimulus-bridge": "^2.0.0",
+        "@symfony/ux-chartjs": "file:vendor/symfony/ux-chartjs/Resources/assets",
+        "@symfony/webpack-encore": "^1.0.0",
+        "core-js": "^3.0.0",
+        "regenerator-runtime": "^0.13.2",
+        "stimulus": "^2.0.0",
+        "webpack-notifier": "^1.6.0"
+    },
+    "license": "UNLICENSED",
+    "private": true,
+    "scripts": {
+        "dev-server": "encore dev-server",
+        "dev": "encore dev",
+        "watch": "encore dev --watch",
+        "build": "encore production --progress",
+        "heroku-postbuild": "node_modules/.bin/encore production"
+    },
+    "dependencies": {
+        "@heroku-cli/plugin-buildpacks": "^7.47.13",
+        "@heroku/buildpack-registry": "^1.0.1"
+    }
+}

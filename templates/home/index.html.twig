@@ -1,0 +1,165 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}COVID-19 Tracking{% endblock %}
+
+{% block body %}
+<div class=" container-fluid">
+  <section id="minimal-statistics">
+    <div class="row">
+      <div class="col-12 mt-3 mb-1">
+        <h4 class="text-uppercase">NIAINA | Covid-19 Tracking using "covid19api"</h4>
+        <p>Global views {{data.Date|date("m/d/Y")}}</p>
+        <p>Source: <a href="https://api.covid19api.com">https://api.covid19api.com</a></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-3 col-sm-6 col-12"> 
+        <div class="card">
+          <div class="card-content">
+            <div class="card-body">
+              <div class="media d-flex">
+                <div class="align-self-center">
+                  <i class="icon-graph success font-large-2 float-left"></i>
+                </div>
+                <div class="media-body text-right">
+                  <h3>{{data.Global.NewConfirmed}}</h3>
+                  <span>New Confirmed</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 col-12">
+        <div class="card">
+          <div class="card-content">
+            <div class="card-body">
+              <div class="media d-flex">
+                <div class="align-self-center">
+                  <i class="icon-graph success font-large-2 float-left"></i>
+                </div>
+                <div class="media-body text-right">
+                  <h3>{{data.Global.TotalConfirmed}}</h3>
+                  <span>Total confirmed</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 col-12">
+        <div class="card">
+          <div class="card-content">
+            <div class="card-body">
+              <div class="media d-flex">
+                <div class="align-self-center">
+                  <i class="icon-graph success font-large-2 float-left"></i>
+                </div>
+                <div class="media-body text-right">
+                  <h3>{{data.Global.NewDeaths}}</h3>
+                  <span>New Deaths</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 col-12">
+        <div class="card">
+          <div class="card-content">
+            <div class="card-body">
+              <div class="media d-flex">
+                <div class="align-self-center">
+                  <i class="icon-graph success font-large-2 float-left"></i>
+                </div>
+                <div class="media-body text-right">
+                  <h3>{{data.Global.TotalDeaths}}</h3>
+                  <span>Total Deaths</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 col-12">
+        <div class="card">
+          <div class="card-content">
+            <div class="card-body">
+              <div class="media d-flex">
+                <div class="align-self-center">
+                  <i class="icon-graph success font-large-2 float-left"></i>
+                </div>
+                <div class="media-body text-right">
+                  <h3>{{data.Global.NewRecovered}}</h3>
+                  <span>New Recovered</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 col-12">
+        <div class="card">
+          <div class="card-content">
+            <div class="card-body">
+              <div class="media d-flex">
+                <div class="align-self-center">
+                  <i class="icon-graph success font-large-2 float-left"></i>
+                </div>
+                <div class="media-body text-right">
+                  <h3>{{data.Global.TotalRecovered}}</h3>
+                  <span>Total Recovered</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class=" container-fluid">
+  <section id="minimal-statistics">
+    <div class="row">
+      <div class="col-12 mt-3 mb-1">
+        <h4 class="text-uppercase">COVID-19 Tracking</h4>
+        <p>View By Country {{data.Date|date("m/d/Y")}}</p>
+        <p>Source: <a href="https://api.covid19api.com">https://api.covid19api.com</a></p>
+      </div>
+    </div>
+    <div class="row">
+    {% for d in data.Countries %}
+      <div class="col-xl-3 col-sm-6 col-12"> 
+        <div class="card">
+          <div class="card-content">
+            <div class="card-body">
+              <div class="media d-flex">
+                <div class="align-self-center">
+                </div>
+                <div class="media-body text-left">
+                  <div class="mb-2">
+                  		<h5 class="text-primary  font-weight-bold">{{d.Country}}</h3>
+                  	<small class="text-secondary">{{d.Date|date("m/d/Y")}}</small>
+                  </div>
+                  <h6>New Confirmed: <span class="badge badge-pill badge-primary">{{d.NewConfirmed}}</span></h6>
+                  <h6>Total Confirmed: <span class="badge badge-pill badge-secondary">{{d.TotalConfirmed}}</span></h6>
+                  <h6>New Deaths: <span class="badge badge-pill badge-warning">{{d.NewDeaths}}</span></h6>
+                  <h6>Total Deaths: <span class="badge badge-pill badge-danger">{{d.TotalDeaths}}</span></h6>
+                  <h6>New Recovered: <span class="badge badge-pill badge-success">{{d.NewRecovered}}</span></h6>
+                  <h6>Total Recovered: <span class="badge badge-pill badge-dark">{{d.TotalRecovered}}</span></h6>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  	{% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+{% endblock %}
